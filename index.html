@@ -16,50 +16,108 @@
             background-color: #f4f6f9;
             display: flex;
             justify-content: center;
-            padding: 20px 10px;
+            padding: 0 0 30px 0;
         }
 
         .container {
             background: #ffffff;
             width: 100%;
-            max-width: 450px;
-            border-radius: 15px;
+            max-width: 480px;
+            min-height: 100vh;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            overflow: hidden;
-            padding: 20px;
+            position: relative;
+            padding-bottom: 60px;
         }
 
-        .header-rifa {
+        .banner-topo {
+            width: 100%;
+            display: block;
+        }
+
+        .conteudo {
+            padding: 15px;
+        }
+
+        .faixa-preco {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             text-align: center;
-            margin-bottom: 20px;
+            padding: 12px;
+            margin-top: -25px;
+            position: relative;
+            z-index: 10;
+            font-size: 15px;
+            color: #2d3748;
         }
 
-        .header-rifa h1 {
-            font-size: 24px;
+        .faixa-preco strong {
             color: #1a202c;
-            margin-bottom: 5px;
+            font-size: 17px;
         }
 
-        .preco-destaque {
-            background: #fff5f5;
-            color: #e53e3e;
+        .titulo-rifa {
+            font-size: 26px;
+            color: #0f172a;
+            font-weight: 700;
+            margin: 20px 0 15px 0;
+        }
+
+        .perfil-organizador {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            object-fit: cover;
+        }
+
+        .info-org p {
+            font-size: 11px;
+            color: #718096;
+        }
+
+        .info-org h4 {
+            font-size: 16px;
+            color: #1a202c;
+            margin-bottom: 2px;
+        }
+
+        .btn-suporte {
+            background: #00bfa5;
+            color: white;
+            border: none;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
             font-weight: bold;
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            margin-bottom: 20px;
-            border: 1px dashed #feb2b2;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            margin-top: 2px;
         }
 
-        .secao-cotas {
-            text-align: center;
+        .caixa-branca-seletor {
+            border: 1px solid #edf2f7;
+            border-radius: 12px;
+            padding: 20px 15px;
+            background: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            margin-bottom: 20px;
         }
 
         .titulo-secao {
-            font-size: 11px;
+            text-align: center;
+            font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             color: #718096;
             font-weight: 700;
             margin-bottom: 15px;
@@ -68,34 +126,29 @@
         .grid-botoes {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            gap: 8px;
             margin-bottom: 15px;
         }
 
         .btn-cota {
             background: #fff;
             border: 1px solid #e2e8f0;
-            padding: 10px;
+            padding: 12px 5px;
             border-radius: 8px;
-            font-weight: 600;
+            font-weight: bold;
             color: #2d3748;
             cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .btn-cota:hover {
-            border-color: #3182ce;
-            background: #ebf8ff;
+            font-size: 14px;
         }
 
         .contador-container {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-top: 20px;
             border: 1px solid #e2e8f0;
             border-radius: 8px;
-            padding: 5px;
+            padding: 4px;
+            margin-bottom: 20px;
         }
 
         .btn-passo {
@@ -114,7 +167,7 @@
             text-align: center;
             font-size: 18px;
             font-weight: bold;
-            width: 60%;
+            width: 70%;
             outline: none;
         }
 
@@ -122,69 +175,138 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 25px 0 15px 0;
-            font-size: 16px;
+            margin-bottom: 20px;
+            font-size: 15px;
             color: #4a5568;
         }
 
         #valor-final {
-            font-size: 20px;
-            font-weight: 800;
+            font-size: 18px;
+            font-weight: bold;
             color: #1a202c;
         }
 
         .btn-reservar {
-            background: #22c55e;
+            background: #1cb954;
             color: white;
             border: none;
             width: 100%;
-            padding: 15px;
-            border-radius: 10px;
+            padding: 16px;
+            border-radius: 8px;
             font-size: 16px;
             font-weight: bold;
             text-transform: uppercase;
             cursor: pointer;
-            transition: background 0.2s;
+            letter-spacing: 0.5px;
         }
 
-        .btn-reservar:hover {
-            background: #16a34a;
+        .grid-infos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .card-info {
+            background: white;
+            border: 1px solid #edf2f7;
+            border-radius: 12px;
+            padding: 15px;
+        }
+
+        .card-info h5 {
+            font-size: 11px;
+            color: #718096;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .card-info .detalhe {
+            font-size: 13px;
+            font-weight: bold;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .rodape-creditos {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+            border-top: 1px solid #edf2f7;
+            font-size: 12px;
+            color: #a0aec0;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="header-rifa">
-        <h1>Rifa Premiada</h1>
-        <div class="preco-destaque">Participe por apenas R$ 0,40 🔥</div>
-    </div>
+    <img src="https://img.freepik.com/vetores-gratis/modelo-de-banner-de-venda-de-midia-social-com-alto-falante-3d-e-elementos-de-midia_125755-1036.jpg" alt="Banner Rifa" class="banner-topo">
 
-    <div class="secao-cotas">
-        <div class="titulo-secao">Selecione a quantidade de cotas</div>
-        
-        <div class="grid-botoes">
-            <button class="btn-cota" onclick="adicionarCotas(1)">+1</button>
-            <button class="btn-cota" onclick="adicionarCotas(5)">+5</button>
-            <button class="btn-cota" onclick="adicionarCotas(10)">+10</button>
-            <button class="btn-cota" onclick="adicionarCotas(100)">+100</button>
-            <button class="btn-cota" onclick="adicionarCotas(1000)">+1000</button>
-            <button class="btn-cota" onclick="adicionarCotas(5000)">+5000</button>
+    <div class="conteudo">
+        <div class="faixa-preco">
+            Participe por apenas <strong>R$ 0,40</strong> 🔥
         </div>
 
-        <div class="contador-container">
-            <button class="btn-passo" onclick="alterarPasso(-1)">-</button>
-            <input type="number" id="input-qtd" value="1" min="1" oninput="calcularTotal()">
-            <button class="btn-passo" onclick="alterarPasso(1)">+</button>
+        <h1 class="titulo-rifa">Rifa premiada</h1>
+
+        <div class="perfil-organizador">
+            <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Avatar" class="avatar">
+            <div class="info-org">
+                <p>Organizado por:</p>
+                <h4>Midra Chama</h4>
+                <a href="https://wa.me/5511999999999?text=Preciso%20de%20suporte%20na%20rifa" target="_blank" class="btn-suporte">
+                    💬 Suporte
+                </a>
+            </div>
+        </div>
+
+        <div class="caixa-branca-seletor">
+            <div class="titulo-secao">Selecione a quantidade de cotas</div>
+            
+            <div class="grid-botoes">
+                <button class="btn-cota" onclick="adicionarCotas(1)">+1</button>
+                <button class="btn-cota" onclick="adicionarCotas(5)">+5</button>
+                <button class="btn-cota" onclick="adicionarCotas(10)">+10</button>
+                <button class="btn-cota" onclick="adicionarCotas(100)">+100</button>
+                <button class="btn-cota" onclick="adicionarCotas(1000)">+1000</button>
+                <button class="btn-cota" onclick="adicionarCotas(5000)">+5000</button>
+                <button class="btn-cota" onclick="adicionarCotas(10000)">+10000</button>
+                <button class="btn-cota" onclick="adicionarCotas(20000)">+20000</button>
+            </div>
+
+            <div class="contador-container">
+                <button class="btn-passo" onclick="alterarPasso(-1)">-</button>
+                <input type="number" id="input-qtd" value="1" min="1" oninput="calcularTotal()">
+                <button class="btn-passo" onclick="alterarPasso(1)">+</button>
+            </div>
+
+            <div class="resumo-valor">
+                <span>Valor final</span>
+                <span id="valor-final">R$ 0,40</span>
+            </div>
+
+            <button class="btn-reservar" onclick="enviarPedido()">Reservar</button>
+        </div>
+
+        <div class="grid-infos">
+            <div class="card-info">
+                <h5>Método de Pagamento</h5>
+                <div class="detalhe">💎 PIX</div>
+            </div>
+            <div class="card-info">
+                <h5>Sorteio</h5>
+                <div class="detalhe">🍀 LIVE NO INSTAGRAM</div>
+            </div>
+        </div>
+
+        <div class="rodape-creditos">
+            <p>Termos de uso | Políticas de privacidade</p>
         </div>
     </div>
-
-    <div class="resumo-valor">
-        <span>Valor final</span>
-        <span id="valor-final">R$ 0,40</span>
-    </div>
-
-    <button class="btn-reservar">Reservar</button>
 </div>
 
 <script>
@@ -192,12 +314,13 @@
     const inputQtd = document.getElementById('input-qtd');
     const valorFinalTxt = document.getElementById('valor-final');
 
+    // COLOQUE O SEU NÚMERO DO WHATSAPP AQUI PARA RECEBER OS PEDIDOS (DDD + NÚMERO)
+    const meuWhatsApp = "5511999999999"; 
+
     function calcularTotal() {
         let qtd = parseInt(inputQtd.value);
         if (isNaN(qtd) || qtd < 1) qtd = 1;
-        
         let total = qtd * precoPorCota;
-        
         valorFinalTxt.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     }
 
@@ -215,8 +338,17 @@
             calcularTotal();
         }
     }
+
+    function enviarPedido() {
+        let qtd = inputQtd.value;
+        let total = (qtd * precoPorCota).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        
+        let textoMensagem = `Olá! Quero reservar ${qtd} cotas da Rifa Premiada.\nValor total: ${total}.\nPor favor, me envie o código Pix para pagamento!`;
+        let linkZap = `https://wa.me/${meuWhatsApp}?text=${encodeURIComponent(textoMensagem)}`;
+        
+        window.open(linkZap, '_blank');
+    }
 </script>
 
 </body>
-  </html>
-  
+</html>
