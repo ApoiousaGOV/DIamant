@@ -5,42 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rifa Premiada</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-        body { background-color: #f4f6f9; display: flex; justify-content: center; padding: 20px; }
-        .container { background: #ffffff; width: 100%; max-width: 480px; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; }
-        .titulo { font-size: 24px; color: #1a202c; margin: 15px 0; }
-        .preco { font-size: 18px; color: #4a5568; margin-bottom: 20px; }
-        .caixa-qtd { margin: 20px 0; }
-        input { width: 80px; padding: 10px; font-size: 18px; text-align: center; border: 2px solid #e2e8f0; border-radius: 8px; }
-        .btn-pix { width: 100%; padding: 18px; background: #00cba9; color: white; border: none; border-radius: 10px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 10px; }
-        #msg { margin-top: 15px; color: #059669; font-weight: bold; }
+        * { box-sizing: border-box; font-family: sans-serif; }
+        body { background-color: #f4f6f9; margin: 0; padding: 20px; display: flex; justify-content: center; }
+        .container { background: #fff; width: 100%; max-width: 400px; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .banner { background: #e2e8f0; height: 150px; border-radius: 10px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; color: #718096; }
+        h1 { font-size: 22px; margin: 0 0 10px 0; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+        button.btn-num { padding: 10px; border: 1px solid #ddd; border-radius: 5px; background: #fff; cursor: pointer; }
+        .control { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 20px; }
+        input { width: 100px; padding: 10px; text-align: center; border: 1px solid #ddd; border-radius: 5px; }
+        .btn-reservar { width: 100%; padding: 15px; background: #059669; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px; }
+        .footer-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+        .card { border: 1px solid #eee; padding: 10px; border-radius: 8px; font-size: 12px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1 class="titulo">Rifa Premiada</h1>
-    <p class="preco">Valor por cota: <strong>R$ 0,40</strong></p>
+    <div class="banner">Banner da Rifa</div>
+    <h1>Rifa premiada</h1>
+    <p>Organizado por: <strong>Midra Chama</strong></p>
 
-    <div class="caixa-qtd">
-        <label>Quantidade de cotas:</label><br>
-        <input type="number" id="qtd" value="1" min="1">
+    <div class="grid">
+        <button class="btn-num" onclick="add(1)">+1</button>
+        <button class="btn-num" onclick="add(5)">+5</button>
+        <button class="btn-num" onclick="add(10)">+10</button>
+        <button class="btn-num" onclick="add(100)">+100</button>
+        <button class="btn-num" onclick="add(1000)">+1000</button>
+        <button class="btn-num" onclick="add(5000)">+5000</button>
     </div>
 
-    <button class="btn-pix" onclick="copiarChave()">COPIAR CHAVE PIX</button>
-    <p id="msg"></p>
-    
-    <p style="margin-top: 20px; font-size: 12px; color: #718096;">
-        Após copiar, abra seu banco e escolha "Pix Copia e Cola".
-    </p>
+    <div class="control">
+        <button onclick="add(-1)">-</button>
+        <input type="number" id="qtd" value="1" readonly>
+        <button onclick="add(1)">+</button>
+    </div>
+
+    <p>Valor final: <strong>R$ <span id="total">0,40</span></strong></p>
+
+    <button class="btn-reservar" onclick="copiarPix()">RESERVAR</button>
+
+    <div class="footer-cards">
+        <div class="card">MÉTODO DE PAGAMENTO<br>💎 PIX</div>
+        <div class="card">SORTEIO<br>🍀 LIVE NO INSTAGRAM</div>
+    </div>
 </div>
 
 <script>
-    function copiarChave() {
-        const minhaChavePix = "0a92fdf1-bdf7-466d-9d17-298d50f26f04"; 
-        navigator.clipboard.writeText(minhaChavePix);
-        
-        document.getElementById('msg').innerText = "Chave copiada com sucesso!";
+    let qtd = 1;
+    function add(n) {
+        qtd = Math.max(1, qtd + n);
+        document.getElementById('qtd').value = qtd;
+        document.getElementById('total').innerText = (qtd * 0.40).toFixed(2).replace('.', ',');
+    }
+
+    function copiarPix() {
+        const chave = "0a92fdf1-bdf7-466d-9d17-298d50f26f04";
+        navigator.clipboard.writeText(chave);
         alert("Chave Pix copiada! Cole no seu banco.");
     }
 </script>
