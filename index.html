@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja de Recarga</title>
     <style>
-        body { font-family: sans-serif; background-color: #1a0b2e; color: white; display: flex; justify-content: center; padding: 20px; }
+        body { font-family: sans-serif; background-color: #2e1a47; color: white; display: flex; justify-content: center; padding: 20px; }
         .container { width: 100%; max-width: 500px; }
         .campo-id { background: white; color: #333; padding: 15px; border-radius: 10px; margin-bottom: 20px; }
         input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
-        
         .vitrine { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
         .card { background: white; color: #333; padding: 15px; border-radius: 12px; text-align: center; }
         .btn-comprar { background: #6366f1; color: white; padding: 10px; border: none; border-radius: 5px; width: 100%; margin-top: 10px; cursor: pointer; font-weight: bold; }
@@ -20,24 +19,32 @@
 <div class="container">
     <h2>1. Insira o ID do jogador</h2>
     <div class="campo-id">
-        <input type="text" placeholder="Ex: 5363266446">
+        <input type="text" id="playerId" placeholder="Ex: 5363266446">
     </div>
 
     <h2>2. Selecione o valor</h2>
     <div class="vitrine">
-        <div class="card">
-            <h3>110 Diamantes</h3>
-            <p>R$ 4,49</p>
-            <button class="btn-comprar" onclick="window.open('LINK_DO_SEU_MERCADO_PAGO_AQUI', '_blank')">Comprar</button>
-        </div>
-        <div class="card">
-            <h3>572 Diamantes</h3>
-            <p>R$ 20,99</p>
-            <button class="btn-comprar" onclick="window.open('LINK_DO_SEU_MERCADO_PAGO_AQUI', '_blank')">Comprar</button>
-        </div>
-        <!-- Você pode adicionar mais cards seguindo este mesmo modelo -->
+        <div class="card"><h3>110 Diamantes</h3><p>R$ 2,25</p><button class="btn-comprar" onclick="copiarPix('2,25', '110')">Comprar</button></div>
+        <div class="card"><h3>341 Diamantes</h3><p>R$ 7,00</p><button class="btn-comprar" onclick="copiarPix('7,00', '341')">Comprar</button></div>
+        <div class="card"><h3>572 Diamantes</h3><p>R$ 10,50</p><button class="btn-comprar" onclick="copiarPix('10,50', '572')">Comprar</button></div>
+        <div class="card"><h3>1166 Diamantes</h3><p>R$ 22,50</p><button class="btn-comprar" onclick="copiarPix('22,50', '1166')">Comprar</button></div>
+        <div class="card"><h3>2398 Diamantes</h3><p>R$ 44,00</p><button class="btn-comprar" onclick="copiarPix('44,00', '2398')">Comprar</button></div>
+        <div class="card"><h3>6160 Diamantes</h3><p>R$ 105,00</p><button class="btn-comprar" onclick="copiarPix('105,00', '6160')">Comprar</button></div>
+        <div class="card"><h3>24640 Diamantes</h3><p>R$ 420,00</p><button class="btn-comprar" onclick="copiarPix('420,00', '24640')">Comprar</button></div>
     </div>
 </div>
+
+<script>
+    function copiarPix(valor, item) {
+        const id = document.getElementById('playerId').value;
+        if(id === "") { alert("Por favor, insira o ID do jogador primeiro!"); return; }
+        
+        const chavePix = "00020126470014BR.GOV.BCB.PIX0125deividkratos000@gmail.com5204000053039865802BR5919DEIVID ARRUDA CAJUI6015PORTO SEGURO (T62070503***6304A3AB";
+        
+        navigator.clipboard.writeText(chavePix);
+        alert("Chave PIX copiada! Valor: R$ " + valor + ". \n\nAgora cole no seu banco para pagar. Após o pagamento, envie o comprovante com o ID: " + id);
+    }
+</script>
 
 </body>
 </html>
