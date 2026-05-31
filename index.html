@@ -1,18 +1,43 @@
-<style>
-    .vitrine { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 20px; }
-    .item { border: 1px solid #ddd; padding: 15px; border-radius: 10px; text-align: center; background: white; }
-    .btn-comprar { background: #6366f1; color: white; padding: 10px; border: none; border-radius: 5px; width: 100%; margin-top: 10px; cursor: pointer; }
-</style>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Recarga</title>
+    <style>
+        body { font-family: sans-serif; background-color: #1a0b2e; color: white; display: flex; justify-content: center; padding: 20px; }
+        .container { width: 100%; max-width: 500px; }
+        .campo-id { background: white; color: #333; padding: 15px; border-radius: 10px; margin-bottom: 20px; }
+        input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        
+        .vitrine { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .card { background: white; color: #333; padding: 15px; border-radius: 12px; text-align: center; }
+        .btn-comprar { background: #6366f1; color: white; padding: 10px; border: none; border-radius: 5px; width: 100%; margin-top: 10px; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
 
-<div class="vitrine">
-    <div class="item">
-        <h3>110 Diamantes</h3>
-        <p>R$ 4,49</p>
-        <button class="btn-comprar" onclick="window.location.href='LINK_DE_PAGAMENTO_AQUI'">Comprar</button>
+<div class="container">
+    <h2>1. Insira o ID do jogador</h2>
+    <div class="campo-id">
+        <input type="text" placeholder="Ex: 5363266446">
     </div>
-    <div class="item">
-        <h3>572 Diamantes</h3>
-        <p>R$ 20,99</p>
-        <button class="btn-comprar" onclick="window.location.href='LINK_DE_PAGAMENTO_AQUI'">Comprar</button>
+
+    <h2>2. Selecione o valor</h2>
+    <div class="vitrine">
+        <div class="card">
+            <h3>110 Diamantes</h3>
+            <p>R$ 4,49</p>
+            <button class="btn-comprar" onclick="window.open('LINK_DO_SEU_MERCADO_PAGO_AQUI', '_blank')">Comprar</button>
+        </div>
+        <div class="card">
+            <h3>572 Diamantes</h3>
+            <p>R$ 20,99</p>
+            <button class="btn-comprar" onclick="window.open('LINK_DO_SEU_MERCADO_PAGO_AQUI', '_blank')">Comprar</button>
+        </div>
+        <!-- Você pode adicionar mais cards seguindo este mesmo modelo -->
     </div>
 </div>
+
+</body>
+</html>
